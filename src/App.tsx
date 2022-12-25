@@ -10,7 +10,12 @@ const App: React.FC = () => {
   
   const handleAdd = (e: React.FormEvent): void => {
     e.preventDefault();
-    setTodos([...todos, {id: Date.now(), todo, completed: false}])
+    const newTodo = {
+      id: window.crypto.getRandomValues(new Uint32Array(1))[0].toString(16),
+      todo,
+      completed: false
+    }
+    setTodos([...todos, newTodo])
     setTodo("");
   }
   
